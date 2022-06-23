@@ -1,23 +1,19 @@
 <?php
 
-namespace APP\MODEL;
+namespace APP\Model;
 
 class ShippingCompany
 {
-
     private string $cnpj;
     private string $name;
 
-      /** 
-     * essa função o total do frete com
-     *  base na distancia percorrida para a entrega
-     * @param float $tax
-     * @param int $period
-     
+    /**
+     * Essa função irá calcular o total do frete com base na distância percorrida para a entrega
+     * @param float $distance
+     * @return float
      */
-    public function shipPrice(float $distance):float
+    public function shipPrice(float $distance): float
     {
         return $distance * 0.5;
-
     }
 }

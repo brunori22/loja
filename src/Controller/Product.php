@@ -1,23 +1,21 @@
 <?php
-namespace APP\CONTROLLLER;
 
+namespace APP\Controller;
 
 use APP\Utils\Redirect;
 
 require '../../vendor/autoload.php';
 
-IF(empty($_POST)){
+if (empty($_POST)) {
     session_start();
-
-//Redirecionar o usuario
-Redirect::redirect(
-type:'error',
-message:"requisição invvalida!!!"
-);
+    // Redirecionar o usuário
+    Redirect::redirect(
+        type: 'error',
+        message: 'Requisição inválida!!!'
+    );
 }
-
 
 $productName = $_POST["name"];
 $productPrice = $_POST["price"];
-$productQuantity = $_POST["quantity"];
+$quantity = $_POST["quantity"];
 $provider = $_POST["provider"];

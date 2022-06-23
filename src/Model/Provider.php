@@ -1,9 +1,11 @@
 <?php
-namespace APP\MODEL;
-class Provider{
-private string $cnpj;
-private string $name;
-private Address $addres;
-private string $phone;
 
+namespace APP\Model;
+
+class Provider
+{
+    private string $cnpj;
+    private string $name;
+    private string $phone;
+    private Address $address;
 }

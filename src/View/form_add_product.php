@@ -6,8 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Loja de varejo - Cadastro de produtos</title>
-    <script>src="https://cdn.tailwindcss.com"</script>
-    <link rel="stylesheet" href="src/view/css/style.css">
+    <link rel="stylesheet" href="css/style.css">
 </head>
 
 <body>
@@ -24,9 +23,9 @@
                     <input type="text" id="price" name="price" class="border border-blue-400" required min="1" max="1000">
                 </article>
             </section>
-            <section class="mt-4 columns-2 " >
+            <section class="mt-4 columns-2">
                 <article>
-                    <label  for="quantity">Quantidade em estoque</label>
+                    <label for="quantity">Quantidade em estoque</label>
                     <input type="number" id="quantity" name="quantity" class="border border-blue-400" required min="1" max="1000">
                 </article>
                 <article>
