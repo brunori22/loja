@@ -1,35 +1,48 @@
 <!DOCTYPE html>
 <html lang="pt-br">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="keywords" content="Loja, De, Varejo">
-    <title>Loja de varejo - cadastro de produtos</title>
-    <script src="https://cdn.tailwindcss.com"></script>
+    <title>Loja de varejo - Cadastro de produtos</title>
+    <script>src="https://cdn.tailwindcss.com"</script>
+    <link rel="stylesheet" href="src/view/css/style.css">
 </head>
+
 <body>
-    <header class="bg-red-400">
-        <ul class="flex">
-            <li class="mx-3">
-                <a href="../index.html">Home</a>
-            </li>
-            <li>
-                <a href="#">Novo produto</a>
-            </li>
-        </ul>
-    </header>
-    <main>
-        <form action="../controller/product.php" method="POST">
-            <section class="columns-3">
+    <form action="../controller/Product.php" method="POST">
+        <fieldset class="p-4 m-5 border border-blue-400">
+            <legend>Dados do produto</legend>
+            <section class="columns-2">
                 <article>
-                    <label for="name">
-                        Digite o nome do produto
-                    </label>
-                    <input type="text" id="name" name="name" class="border border-green-400">
+                    <label for="name">Nome do produto</label>
+                    <input type="text" id="name" name="name" class="border border-blue-400" required minlength="5">
+                </article>
+                <article>
+                    <label for="price">Preço</label>
+                    <input type="text" id="price" name="price" class="border border-blue-400" required min="1" max="1000">
                 </article>
             </section>
-        </form>
-    </main>
+            <section class="mt-4 columns-2 " >
+                <article>
+                    <label  for="quantity">Quantidade em estoque</label>
+                    <input type="number" id="quantity" name="quantity" class="border border-blue-400" required min="1" max="1000">
+                </article>
+                <article>
+                    <label for="provider">Fornecedor</label>
+                    <select name="provider" id="provider">
+                        <option value="1">Fornecedor 1</option>
+                        <option value="2">Fornecedor 2</option>
+                        <option value="3">Fornecedor 4</option>
+                    </select>
+                </article>
+            </section>
+            <article class="flex justify-center mt-4">
+                <button type="submit" class="p-4 text-white bg-blue-700 rounded">Cadastrar</button>
+            </article>
+        </fieldset>
+    </form>
 </body>
+
 </html>
