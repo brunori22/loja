@@ -1,12 +1,8 @@
 {
-  "name": "loja_de_varejo",
-  "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "buildCSS": "npx tailwindcss -i ./src/view/css/tailwind.css -o ./src/view/css/style.css --watch"
   },
-  "dependencies": {
+  "devDependencies": {
     "tailwindcss": "^3.1.3"
   }
 }
