@@ -10,8 +10,12 @@
 </head>
 
 <body>
-    <?php session_start(); ?>
-
+    <?php 
+        session_start();
+        if(empty($_SESSION)){
+            header("location:../../index.html");
+        }
+    ?>
     <main class="flex items-center justify-center" style="height: 100vh;">
         <?php
         if (!empty($_SESSION['msg_success'])) :
