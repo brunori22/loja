@@ -9,6 +9,7 @@ class Redirect
         string $url = '../View/Message.php',
         string $type = 'success'
     ) {
+        session_start();
         if (is_array($message)) {
             // TODO Implementar leitura do array
         } else {

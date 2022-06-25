@@ -3,6 +3,7 @@
 namespace APP\Controller;
 
 use APP\Utils\Redirect;
+use APP\Model\Validation;
 
 require '../../vendor/autoload.php';
 
@@ -16,6 +17,37 @@ if (empty($_POST)) {
 }
 
 $productName = $_POST["name"];
-$productPrice = $_POST["price"];
+$productCostPrice = str_replace(",", ".", $_POST["cost"]);
 $quantity = $_POST["quantity"];
 $provider = $_POST["provider"];
+
+$error = array();
+
+// array_unshift -> Adicionar no início do array
+// array_push -> Adicionar no final do array
+
+// array_shift -> Remove do início do array
+// array_pop -> Remove do final do array
+
+if (!Validation::validateName($productName)) {
+    array_push($error, "O nome do produto deve conter mais de 2 caracteres!!!");
+}
+
+if (!Validation::validateNumber($productCostPrice)) {
+    array_push($error, "O preço de custo do produto deverá ser maior que zero!!!");
+}
+
+if (!Validation::validateNumber($quantity)) {
+    array_push($error, "A quantidade de entrada deverá ser maior que zero!!!");
+}
+
+if ($error) {
+    Redirect::redirect(
+        message: $error,
+        type: 'warning'
+    );
+} else {
+    Redirect::redirect(
+        message: "O produto $productName foi cadastrado com sucesso!!!"
+    );
+}

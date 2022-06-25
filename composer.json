@@ -1,5 +1,5 @@
 {
-    "name": "qi/loja_de_varejo",
+    "name": "anderson/loja_de_varejo",
     "autoload": {
         "psr-4": {
             "APP\\": "src/"
