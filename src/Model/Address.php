@@ -9,6 +9,8 @@ class Address
     private string $complement;
     private string $neighborhood;
     private string $city;
+
+
     private string $zipCode;
 
     public function __construct(
@@ -27,4 +29,5 @@ class Address
         $this->city = $city;
         $this->zipCode = $zipCode;
     }
+
 }
