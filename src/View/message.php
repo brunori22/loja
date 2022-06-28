@@ -10,12 +10,15 @@
 </head>
 
 <body>
-    <?php 
-        session_start();
-        if(empty($_SESSION)){
-            header("location:../../index.html");
-        }
+
+    <?php
+    session_start();
+    if (empty($_SESSION)) {
+        header("location:../../index.html");
+    }
     ?>
+
+
     <main class="flex items-center justify-center" style="height: 100vh;">
         <?php
         if (!empty($_SESSION['msg_success'])) :
@@ -25,6 +28,10 @@
                     <p class="text-center">
                         <?= $_SESSION['msg_success'] ?>
                     </p>
+
+
+                    <a href="#" onclick="window.history.back()" class="underline">Voltar</a>
+
                 </div>
             </article>
         <?php
@@ -36,9 +43,12 @@
         ?>
             <article class="w-2/4 text-white bg-orange-700 rounded">
                 <div class="p-9">
-                    <p class="text-center">
+
+                    <ul>
                         <?= $_SESSION['msg_warning'] ?>
-                    </p>
+                    </ul>
+                    <a href="#" onclick="window.history.back()" class="underline">Voltar</a>
+
                 </div>
             </article>
         <?php

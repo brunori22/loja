@@ -15,12 +15,14 @@
             <legend>Dados do produto</legend>
             <section class="columns-2">
                 <article>
-                    <label for="cost">Nome do produto</label>
+
+                    <label for="name">Nome do produto</label>
                     <input type="text" id="name" name="name" class="border border-blue-400" required minlength="5">
                 </article>
                 <article>
-                    <label for="price">Preço de custo</label>
-                    <input type="text" id="price" name="price" class="border border-blue-400" required min="1" max="1000">
+                    <label for="cost">Preço de custo</label>
+                    <input type="text" id="cost" name="cost" class="border border-blue-400" required min="1" max="1000">
+
                 </article>
             </section>
             <section class="mt-4 columns-2">
