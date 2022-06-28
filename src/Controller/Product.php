@@ -2,6 +2,8 @@
 
 namespace APP\Controller;
 
+use APP\Model\Product;
+use APP\Model\Provider;
 use APP\Utils\Redirect;
 use APP\Model\Validation;
 
@@ -47,6 +49,18 @@ if ($error) {
         type: 'warning'
     );
 } else {
+    $product = new Product(
+        tax: 0.2,
+        operationCost: 0.07,
+        lucre: 0.8,
+        cost: $productCostPrice,
+        name: $productName,
+        quantity: $quantity,
+        provider: new Provider(
+            cnpj: '00000/0001',
+            name:"Fornecedor Padrão"
+        )
+    );
     Redirect::redirect(
         message: "O produto $productName foi cadastrado com sucesso!!!"
     );
