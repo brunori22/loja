@@ -9,6 +9,7 @@ class Product
     private int $quantity;
     private Provider $provider;
 
+
     public function __construct(
         float $cost,
         float $tax,
@@ -44,4 +45,5 @@ class Product
     {
         return $this->price / $costOfOperation;
     }
+
 }

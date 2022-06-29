@@ -6,6 +6,7 @@ class Provider
 {
     private string $cnpj;
     private string $name;
+
     private ?string $phone;
     private ?Address $address;
 
@@ -21,4 +22,5 @@ class Provider
         $this->phone = $phone;
         $this->address = $address;
     }
+
 }
