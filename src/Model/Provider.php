@@ -14,7 +14,7 @@ class Provider
         string $cnpj,
         string $name,
         ?string $phone = null,
-        ?Address $address = null
+        ?Address $address = null,
     )
     {
         $this->cnpj = $cnpj;
