@@ -17,7 +17,7 @@
                 <article>
 
                     <label for="name">Nome do produto</label>
-                    <input type="text" id="name" name="name" class="border border-blue-400" required minlength="5">
+                    <input type="text" id="name" name="name" class="border border-blue-400" required minlength="2">
                 </article>
                 <article>
                     <label for="cost">Preço de custo</label>
