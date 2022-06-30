@@ -574,6 +574,10 @@ video {
   display: flex;
 }
 
+.h-32 {
+  height: 8rem;
+}
+
 .w-2\/4 {
   width: 50%;
 }
@@ -637,8 +641,8 @@ video {
   padding: 1rem;
 }
 
-.p-9 {
-  padding: 2.25rem;
+.p-12 {
+  padding: 3rem;
 }
 
 .text-center {
@@ -648,9 +652,4 @@ video {
 .text-white {
   --tw-text-opacity: 1;
   color: rgb(255 255 255 / var(--tw-text-opacity));
-}
-
-.underline {
-  -webkit-text-decoration-line: underline;
-          text-decoration-line: underline;
 }

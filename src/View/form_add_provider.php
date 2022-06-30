@@ -13,8 +13,8 @@
             <legend>Dados do Fornecedor</legend>
             <section style="margin: 10px 0">
                 <article>
-                    <label for="name">Nome do produto: </label>
-                    <input type="text id="name="name" class="border border-blue-400 " required minlength="2">
+                    <label for="name">Nome: </label>
+                    <input type="text id="name="name" class="border border-blue-400" required minlength="2">
                 </article>
                 <article >
                     <label for="cnpj">CNPJ: </label>
@@ -23,11 +23,11 @@
                 <section>
                     <article>
                         <label for="phone">Telefone: </label>
-                        <input type="text" id="phone" name="phone" class="border border-blue-400" >
+                        <input type="number" id="phone" name="phone" class="border border-blue-400" required minlength="2">
                     </article>
                 </section>
                 <fieldset class="p-4 m-5 border border-blue-400">
-                    <legend>Endereço</legend>
+                    <legend>Dados do Endereço</legend>
                     <section class="columns-2">
                         <article>
                             <label for="publicPlace">Rua: </label>
@@ -44,7 +44,7 @@
                         <section class="columns-2"style="margin: 10px 0">
                             <article>
                                 <label for="neighborhood">Bairro: </label>
-                                <input type="text" name="neigborhood" id="neighborhood" class="border border-blue-400" required minlength="2" maxlength="">
+                                <input type="text" name="neighborhood" id="neighborhood" class="border border-blue-400"  >
                             </article>
                             <article>
                                 <label for="city">Cidade: </label>
