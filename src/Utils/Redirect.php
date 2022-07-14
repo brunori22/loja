@@ -5,7 +5,10 @@ namespace APP\Utils;
 //função estática
 class Redirect
 {
-    public static function redirect(string|array $message,string $url = '../View/Message.php',string $type = 'success')
+    public static function redirect
+    (string|array $message,
+    string $url = '../View/Message.php',
+    string $type = 'success')
     {
         session_start();
         if(is_array($message)){
