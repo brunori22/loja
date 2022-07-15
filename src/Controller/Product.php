@@ -2,13 +2,12 @@
 
 namespace APP\Controller;
 
-
-
+use APP\Model\DAO\ProductDAO;
 use APP\Model\Product;
 use APP\Model\Provider;
 use APP\Utils\Redirect;
 use APP\Model\Validation;
-
+use PDOException;
 
 require '../../vendor/autoload.php';
 
@@ -22,15 +21,17 @@ if (empty($_POST)) {
 }
 
 $productName = $_POST["name"];
-
 $productCostPrice = str_replace(",", ".", $_POST["cost"]);
-
 $quantity = $_POST["quantity"];
 $provider = $_POST["provider"];
 
 $error = array();
 
+// array_unshift -> Adicionar no início do array
+// array_push -> Adicionar no final do array
 
+// array_shift -> Remove do início do array
+// array_pop -> Remove do final do array
 
 if (!Validation::validateName($productName)) {
     array_push($error, "O nome do produto deve conter mais de 2 caracteres!!!");
@@ -59,11 +60,21 @@ if ($error) {
         quantity: $quantity,
         provider: new Provider(
             cnpj: '00000/0001',
-            name:"Fornecedor Padrão"
+            name: "Fornecedor Padrão"
         )
     );
-    Redirect::redirect(
-        message: "O produto $productName foi cadastrado com sucesso!!!"
-    );
+    try {
+        $dao = new ProductDAO();
+        $result = $dao->insert($product);
+        if ($result) {
+            Redirect::redirect(
+                message: "O produto $productName foi cadastrado com sucesso!!!"
+            );
+        } else {
+            Redirect::redirect("Lamento, não foi possível cadastrar o produto $productName", type: 'error');
+        }
+    } catch (PDOException $e) {
+        // Redirect::redirect("Houve um erro inesperado:" . $e->getMessage(), type: 'error');
+        Redirect::redirect("Lamento, houve um erro inesperado!!!" . $e->getMessage(), type: 'error');
+    }
 }
-

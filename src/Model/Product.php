@@ -4,11 +4,11 @@ namespace APP\Model;
 
 class Product
 {
+    private int $id;
     private string $name;
     private float $price;
     private int $quantity;
     private Provider $provider;
-
 
     public function __construct(
         float $cost,
@@ -18,8 +18,7 @@ class Product
         string $name,
         int $quantity,
         Provider $provider
-    )
-    {
+    ) {
         self::calculateFinalPrice(
             $cost,
             $tax,
@@ -45,9 +44,9 @@ class Product
     {
         return $this->price / $costOfOperation;
     }
+
     public function __get($attribute)
     {
         return $this->$attribute;
     }
-
 }
