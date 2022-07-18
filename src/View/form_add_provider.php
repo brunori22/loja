@@ -13,17 +13,17 @@
             <legend>Dados do Fornecedor</legend>
             <section style="margin: 10px 0">
                 <article>
-                    <label for="name">Nome: </label>
+                    <label for="name">Nome do Fornecedor: </label>
                     <input type="text id="name="name" class="border border-blue-400" required minlength="2">
                 </article>
                 <article >
                     <label for="cnpj">CNPJ: </label>
-                    <input type="text" id="cnpj" name="cnpj" class="border border-blue-400" required minlength="2">
+                    <input type="text" id="cnpj" name="cnpj" class="border border-blue-400" required minlength="13" maxlength="18">
                 </article>
                 <section>
                     <article>
                         <label for="phone">Telefone: </label>
-                        <input type="number" id="phone" name="phone" class="border border-blue-400" required minlength="2">
+                        <input type="number" id="phone" name="phone" class="border border-blue-400"  >
                     </article>
                 </section>
                 <fieldset class="p-4 m-5 border border-blue-400">
@@ -35,11 +35,11 @@
                         </article>
                         <article>
                             <label for="numberOfStreet">Número: </label>
-                            <input type="number"id="numberOfStreet" name="numberOfStreet"class="border border-blue-400" required minlength="2">
+                            <input type="number"id="numberOfStreet" name="numberOfStreet"class="border border-blue-400" >
                         </article>
                         <article>
                             <label for="complement">Complemento: </label>
-                            <input type="text" name="complement" id="complement" class="border border-blue-400" required minlength="2" maxlength="30">
+                            <input type="text" name="complement" id="complement" class="border border-blue-400" >
                         </article>
                         <section class="columns-2"style="margin: 10px 0">
                             <article>

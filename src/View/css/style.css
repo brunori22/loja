@@ -562,6 +562,10 @@ video {
   margin: 1.25rem;
 }
 
+.m-4 {
+  margin: 1rem;
+}
+
 .mt-4 {
   margin-top: 1rem;
 }
@@ -645,6 +649,10 @@ video {
   padding: 3rem;
 }
 
+.p-9 {
+  padding: 2.25rem;
+}
+
 .text-center {
   text-align: center;
 }
@@ -652,4 +660,9 @@ video {
 .text-white {
   --tw-text-opacity: 1;
   color: rgb(255 255 255 / var(--tw-text-opacity));
+}
+
+.underline {
+  -webkit-text-decoration-line: underline;
+          text-decoration-line: underline;
 }

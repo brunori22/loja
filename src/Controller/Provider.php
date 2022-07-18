@@ -3,6 +3,8 @@
 namespace APP\Controller;
 use APP\Controller\ProviderDAO;
 use APP\Model\Address;
+use APP\Model\DAO\AddressDAO;
+use APP\Model\DAO\ProviderDAO;
 use APP\Model\Product;
 use APP\Controller\Provider;
 use APP\Model\DAO\AddressDAO;
@@ -31,6 +33,7 @@ $zipCode = $_POST['zipCode'];
 
 $address = new Address(
     publicPlace: $publicPlace,
+    streetName: $streetName,
     numberOfStreet: $numberOfStreet,
     complement: $complement,
     neighborhood: $neighborhood,
@@ -49,18 +52,18 @@ if (!Validation::validateName($cnpj)) {
     array_push($error, "O campo CNPJ necessita de mais de 3 caractéres!!!");
 }
 if (!Validation::validateNumber($phone)) {
-    array_push($error, "O campo Telefone necessita de mais de 3 caractéres!!!");
+    array_push($error, "O campo Telefone deverá ser maior que zero!!!");
 }
 ///////Validação do Address/////////    
 if (!Validation::validateName($publicPlace)) {
     array_push($error, "O campo Rua necessita de mais de 3 caractéres!!!");
 }
-if (!Validation::validateName($numberOfStreet)) {
-    array_push($error, "O campo Número necessita de mais de 3 caractéres!!!");
+if (!Validation::validateNumber($numberOfStreet)) {
+    array_push($error, "O campo Número deverá ser maior que zero!!!!");
 }
-if (!Validation::validateName($complement)) {
-    array_push($error, "O campo Complemento necessita de mais de 3 caractéres!!!");
-}
+//if (!Validation::validateName($complement)) {
+ //   array_push($error, "O campo Complemento necessita de mais de 3 caractéres!!!");
+//}
 if (!Validation::validateName($neighborhood)) {
     array_push($error, "O campo Bairro necessita de mais de 3 caractéres!!!");
 }
@@ -80,6 +83,7 @@ if ($error) {
         name: $name,
         phone: $phone,
         address: new Address(
+            streetName: "Rua A",
             publicPlace: $publicPlace,
             numberOfStreet: $numberOfStreet,
             complement: $complement,
@@ -88,6 +92,7 @@ if ($error) {
             zipCode: $zipCode
         )
     );
+<<<<<<< HEAD
     
     try{
     $dao = new ProviderDAO();
@@ -109,3 +114,24 @@ if ($error) {
 
 
 }
+=======
+    try{
+        $dao= new AddressDAO();
+        $result = $dao->insert($provider->address);
+        if($result){
+            $provider->address->id = $dao->findId();
+            
+            $dao = new ProviderDAO();
+            $result = $dao->insert($provider);
+            if($result){
+                Redirect::redirect(message: "O fornecedor $name foi cadastrado com sucesso!!!");
+            }else{
+                Redirect::redirect(message: "Lamento, não foi possível cadastrar o fornecedor $providerName",type:'error');
+            }
+        }
+    }catch(PDOException $e){
+        Redirect::redirect(message:"Lamento, houve um erro inesperado em nosso sistema!!!",type:'error');   
+        // Notificar o desenvolvedor
+    }
+}
+>>>>>>> 9eb0ee9817dc9b668218981b4445bf94c801119c
