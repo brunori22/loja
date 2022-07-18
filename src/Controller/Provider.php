@@ -1,12 +1,14 @@
 <?php
 
 namespace APP\Controller;
-
+use APP\Controller\ProviderDAO;
 use APP\Model\Address;
 use APP\Model\Product;
-use APP\Model\Provider;
+use APP\Controller\Provider;
+use APP\Model\DAO\AddressDAO;
 use APP\Model\Validation;
 use APP\Utils\Redirect;
+use PDOException;
 
 require '../../vendor/autoload.php';
 
@@ -86,5 +88,24 @@ if ($error) {
             zipCode: $zipCode
         )
     );
+    
+    try{
+    $dao = new ProviderDAO();
+    $dao = new AddressDAO();
+    $result = $dao->insert($provider); 
+    if ($result) {
+        Redirect::redirect(message: "O fornecedor $providerName foi cadastrado com sucesso!!!");
+
+    }else{
+        Redirect::redirect(message: "lamento, não foi possivel cadastrar o forncedor $providername", type: 'error');
+
+    }
+
+
     Redirect::redirect(message: "O fornecedor $name foi cadastrado com sucesso!!!");
+    }catch (PDOException $e) {
+
+    }
+
+
 }

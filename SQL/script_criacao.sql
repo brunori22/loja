@@ -35,7 +35,7 @@ ENGINE = InnoDB;
 
 
 -- -----------------------------------------------------
---x Table `loja`.`Provider`
+--3 Table `loja`.`Provider`
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `loja`.`Provider` (
   `provider_code` SMALLINT NOT NULL AUTO_INCREMENT,
@@ -44,8 +44,8 @@ CREATE TABLE IF NOT EXISTS `loja`.`Provider` (
   `provider_phone` CHAR(14) NOT NULL,
   `address_code` SMALLINT NOT NULL,
   PRIMARY KEY (`provider_code`),
-  INDEX `fk_Provider_Address` (`address_code` ASC) VISIBLE,
-  UNIQUE INDEX `cnpj_UNIQUE` (`cnpj` ASC) VISIBLE,
+  INDEX `fk_Provider_Address` (`address_code` ASC),
+  UNIQUE INDEX `cnpj_UNIQUE` (`cnpj` ASC),
   CONSTRAINT `fk_Provider_Address`
     FOREIGN KEY (`address_code`)
     REFERENCES `loja`.`Address` (`address_code`)
@@ -67,14 +67,14 @@ ENGINE = InnoDB;
 
 
 -- -----------------------------------------------------
---x Table `loja`.`Provider_Product`
+--4 Table `loja`.`Provider_Product`
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `loja`.`Provider_Product` (
   `provider_code` SMALLINT NOT NULL,
   `product_code` SMALLINT NOT NULL,
   PRIMARY KEY (`provider_code`, `product_code`),
-  INDEX `fk_Provider_Product_Product` (`product_code` ASC) VISIBLE,
-  INDEX `fk_Provider_Product_Provider` (`provider_code` ASC) VISIBLE,
+  INDEX `fk_Provider_Product_Product` (`product_code` ASC),
+  INDEX `fk_Provider_Product_Provider` (`provider_code` ASC),
   CONSTRAINT `fk_Provider_has_Product_Provider1`
     FOREIGN KEY (`provider_code`)
     REFERENCES `loja`.`Provider` (`provider_code`)

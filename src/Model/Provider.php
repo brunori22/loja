@@ -23,4 +23,10 @@ class Provider
         $this->address = $address;
     }
 
+    public function __get($attribute){
+        return $this->$attribute;
+
+
+    }
+
 }
