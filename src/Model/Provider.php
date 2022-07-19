@@ -23,7 +23,7 @@ class Provider
         $this->address = $address;
     }
 
-<<<<<<< HEAD
+
     public function __get($attribute){
         return $this->$attribute;
 
@@ -31,10 +31,5 @@ class Provider
     }
 
 }
-=======
-    public function __get($attribute)
-    {
-        return $this->$attribute;
-    }
-}
->>>>>>> 9eb0ee9817dc9b668218981b4445bf94c801119c
+
+  
