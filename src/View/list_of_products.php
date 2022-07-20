@@ -24,6 +24,9 @@
             <li class="inline">
                 <a href="#">Listar produtos</a>
             </li>
+            <li class="inline">
+          <a href="../View/list_of_provider.php">Listar Fornecedor</a>
+        </li>
         </ul>
     </nav>
     <h1 class="my-4 text-3xl font-bold text-center text-blue-800">Lista de produtos cadastrados</h1>
@@ -33,6 +36,7 @@
             <th>Nome do produto</th>
             <th>Preço do produto</th>
             <th>Quantidade em estoque</th>
+            <th>Ações</th>
         </thead>
         <tbody>
             <?php
@@ -51,6 +55,10 @@
                     </td>
                     <td>
                         <?= $product['product_quantity'] ?>
+                    </td>
+                    <td>
+                        <a href="../Controller/Product.php?operation=find&code=<?= $product["product_code"] ?>">Editar</a>
+                        <a href="../Controller/Product.php?operation=remove&code=<?= $product["product_code"] ?>">Remover</a>
                     </td>
                 </tr>
             <?php

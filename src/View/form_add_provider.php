@@ -1,67 +1,84 @@
 <!DOCTYPE html>
-<html lang="pt-br">
+<html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="css/style.css">
-    <title>Loja de varejo - Cadastro de Fornecedor</title>
+    <title>Create new provider</title>
 </head>
+
 <body>
-    <form action="../Controller/Provider.php"method="POST">
-        <fieldset class="flex flex-col justify-center p-4 m-5 border border-blue-400">
-            <legend>Dados do Fornecedor</legend>
-            <section style="margin: 10px 0">
-                <article>
-                    <label for="name">Nome do Fornecedor: </label>
-                    <input type="text id="name="name" class="border border-blue-400" required minlength="2">
-                </article>
-                <article >
-                    <label for="cnpj">CNPJ: </label>
-                    <input type="text" id="cnpj" name="cnpj" class="border border-blue-400" required minlength="13" maxlength="18">
-                </article>
+    <nav class="bg-blue-400">
+        <ul>
+            <li class="inline">
+                <a href="../../index.html">Home</a>
+            </li>
+            <li class="inline">
+                <a href="form_add_product.php">Novo produto</a>
+            </li>
+            <li class="inline">
+                <a href="#">Novo fornecedor</a>
+            </li>
+            <li class="inline">
+                <a href="../Controller/Product.php?operation=list">Listar produtos</a>
+            </li>
+            <li class="inline">
+                <a href="../Controller/Provider.php?operation=list">Listar Fornecedores</a>
+            </li>
+        </ul>
+    </nav>
+
+    <main class="flex items-center justify-center h-screen">
+
+        <form action="../Controller/Provider.php" method="POST">
+
+            <fieldset class="flex flex-col p-4 m-5 border border-purple-400 w-400">
+
                 <section>
                     <article>
-                        <label for="phone">Telefone: </label>
-                        <input type="number" id="phone" name="phone" class="border border-blue-400"  >
+                        <input type="text" id="cnpj" name="cnpj" placeholder="Cnpj" class="p-2 m-2 field">
+                    </article>
+                    <article>
+                        <input type="text" id="name" name="name" placeholder="Nome" class="p-2 m-2 field">
+                    </article>
+                    <article>
+                        <input type="text" id="phone" name="phone" placeholder="Telefone" class="p-2 m-2 field">
                     </article>
                 </section>
-                <fieldset class="p-4 m-5 border border-blue-400">
-                    <legend>Dados do Endereço</legend>
-                    <section class="columns-2">
-                        <article>
-                            <label for="publicPlace">Rua: </label>
-                            <input type="text" id="publicPlace" name="publicPlace"  class="border border-blue-400" required minlength="2" maxlength="50">
-                        </article>
-                        <article>
-                            <label for="numberOfStreet">Número: </label>
-                            <input type="number"id="numberOfStreet" name="numberOfStreet"class="border border-blue-400" >
-                        </article>
-                        <article>
-                            <label for="complement">Complemento: </label>
-                            <input type="text" name="complement" id="complement" class="border border-blue-400" >
-                        </article>
-                        <section class="columns-2"style="margin: 10px 0">
-                            <article>
-                                <label for="neighborhood">Bairro: </label>
-                                <input type="text" name="neighborhood" id="neighborhood" class="border border-blue-400"  >
-                            </article>
-                            <article>
-                                <label for="city">Cidade: </label>
-                                <input type="text" name="city" id="city" class="border border-blue-400" required minlength="2">
-                            </article>
-                            <article>
-                                <label for="zipCode">Cep: </label>
-                                <input type="text" name="zipCode" id="zipCode" class="border border-blue-400" required minlength="2">
-                            </article>
-                        </section>
-                    </section>
-                </fieldset>
-            </section>
-            <article class="flex justify-center mt-4">
-                <button type="submit" class="p-4 text-white bg-blue-700 rounded">Cadastrar</button>
-            </article>
-        </fieldset>
-    </form>
+
+                <section class="grid grid-cols-2">Endereço
+
+                    <p></p>
+                    <article>
+                        <input type="text" id="publicPlace" name="publicPlace" placeholder="Rua" class="p-2 m-2 field">
+                    </article>
+                    <article>
+                        <input type="text" id="numberOfStreet" name="numberOfStreet" placeholder="Número" class="p-2 m-2 field">
+                    </article>
+                    <article>
+                        <input type="text" id="complement" name="complement" placeholder="Complemento" class="p-2 m-2 field">
+                    </article>
+                    <article>
+                        <input type="text" id="neighborhood" name="neighborhood" placeholder="Bairro" class="p-2 m-2 field">
+                    </article>
+                    <article>
+                        <input type="text" id="city" name="city" placeholder="Cidade" class="p-2 m-2 field">
+                    </article>
+                    <article>
+                        <input type="text" id="zipCode" name="zipCode" placeholder="CEP" class="p-2 m-2 field">
+                    </article>
+
+                </section>
+
+                <button type="submit" class="px-4 py-2 font-bold text-white bg-purple-500 rounded shadow hover:bg-purple-400 focus:shadow-outline focus:outline-none">Cadastrar</button>
+            </fieldset>
+
+        </form>
+
+    </main>
+    
 </body>
+
 </html>
