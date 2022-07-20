@@ -1,16 +1,16 @@
 <?php
+
 namespace APP\Model;
 
-class validation
+class Validation
 {
-    public static function validateName(string $name):bool
+    public static function validateName(string $name): bool
     {
         return mb_strlen($name) > 2;
     }
 
-    public static function validateNumber(float $number):bool
+    public static function validateNumber(float $number)
     {
         return $number > 0;
     }
-
 }

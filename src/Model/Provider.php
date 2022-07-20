@@ -15,21 +15,15 @@ class Provider
         string $name,
         ?string $phone = null,
         ?Address $address = null
-    )
-    {
+    ) {
         $this->cnpj = $cnpj;
         $this->name = $name;
         $this->phone = $phone;
         $this->address = $address;
     }
 
-
-    public function __get($attribute){
+    public function __get($attribute)
+    {
         return $this->$attribute;
-
-
     }
-
 }
-
-  
