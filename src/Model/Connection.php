@@ -12,7 +12,7 @@ class Connection
     {
     }
 
-    public static function getConnection()
+    public static function getConnection() :PDO
     {
         if (empty(self::$connection)) {
             self::$connection = new PDO(DNS, USER, PASSWORD, [
