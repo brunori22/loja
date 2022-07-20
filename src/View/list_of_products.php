@@ -24,6 +24,9 @@
             <li class="inline">
                 <a href="#">Listar produtos</a>
             </li>
+            <li class="inline">
+          <a href="../View/list_of_provider.php">Listar Fornecedor</a>
+        </li>
         </ul>
     </nav>
     <h1 class="my-4 text-3xl font-bold text-center text-blue-800">Lista de produtos cadastrados</h1>
