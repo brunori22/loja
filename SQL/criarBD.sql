@@ -8,18 +8,18 @@ SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0;
 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='ONLY_FULL_GROUP_BY,STRICT_TRANS_TABLES,NO_ZERO_IN_DATE,NO_ZERO_DATE,ERROR_FOR_DIVISION_BY_ZERO,NO_ENGINE_SUBSTITUTION';
 
 -- -----------------------------------------------------
--- Schema loja
+--1 Schema loja
 -- -----------------------------------------------------
 DROP SCHEMA IF EXISTS `loja` ;
 
 -- -----------------------------------------------------
--- Schema loja
+--2 Schema loja
 -- -----------------------------------------------------
 CREATE SCHEMA IF NOT EXISTS `loja` DEFAULT CHARACTER SET utf8 ;
 USE `loja` ;
 
 -- -----------------------------------------------------
---2 Table `loja`.`Address`
+--3 Table `loja`.`Address`
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `loja`.`Address` (
   `address_code` SMALLINT NOT NULL AUTO_INCREMENT,
@@ -33,34 +33,8 @@ CREATE TABLE IF NOT EXISTS `loja`.`Address` (
   PRIMARY KEY (`address_code`))
 ENGINE = InnoDB;
 
-
 -- -----------------------------------------------------
---3 Table `loja`.`Provider`
--- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `loja`.`Provider` (
-  `provider_code` SMALLINT NOT NULL AUTO_INCREMENT,
-  `cnpj` CHAR(18) NOT NULL,
-  `provider_name` VARCHAR(50) NOT NULL,
-  `provider_phone` CHAR(14) NOT NULL,
-  `address_code` SMALLINT NOT NULL,
-  PRIMARY KEY (`provider_code`),
-<<<<<<< HEAD:SQL/script_criacao.sql
-  INDEX `fk_Provider_Address` (`address_code` ASC),
-  UNIQUE INDEX `cnpj_UNIQUE` (`cnpj` ASC),
-=======
-  INDEX `fk_Provider_Address` (`address_code` ),
-  UNIQUE INDEX `cnpj_UNIQUE` (`cnpj` ),
->>>>>>> 9eb0ee9817dc9b668218981b4445bf94c801119c:SQL/criarBD.sql
-  CONSTRAINT `fk_Provider_Address`
-    FOREIGN KEY (`address_code`)
-    REFERENCES `loja`.`Address` (`address_code`)
-    ON DELETE NO ACTION
-    ON UPDATE NO ACTION)
-ENGINE = InnoDB;
-
-
--- -----------------------------------------------------
---1 Table `loja`.`Product`
+--4 Table `loja`.`Product`
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `loja`.`Product` (
   `product_code` SMALLINT NOT NULL AUTO_INCREMENT,
@@ -72,19 +46,36 @@ ENGINE = InnoDB;
 
 
 -- -----------------------------------------------------
---4 Table `loja`.`Provider_Product`
+--5 Table `loja`.`Provider`
+-- -----------------------------------------------------
+CREATE TABLE IF NOT EXISTS `loja`.`Provider` (
+  `provider_code` SMALLINT NOT NULL AUTO_INCREMENT,
+  `cnpj` CHAR(18) NOT NULL,
+  `provider_name` VARCHAR(50) NOT NULL,
+  `provider_phone` CHAR(14) NOT NULL,
+  `address_code` SMALLINT NOT NULL,
+  PRIMARY KEY (`provider_code`),
+
+  INDEX `fk_Provider_Address` (`address_code` ),
+  UNIQUE INDEX `cnpj_UNIQUE` (`cnpj` ),
+
+  CONSTRAINT `fk_Provider_Address`
+    FOREIGN KEY (`address_code`)
+    REFERENCES `loja`.`Address` (`address_code`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION)
+ENGINE = InnoDB;
+
+
+-- -----------------------------------------------------
+--6 Table `loja`.`Provider_Product`
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `loja`.`Provider_Product` (
   `provider_code` SMALLINT NOT NULL,
   `product_code` SMALLINT NOT NULL,
   PRIMARY KEY (`provider_code`, `product_code`),
-<<<<<<< HEAD:SQL/script_criacao.sql
   INDEX `fk_Provider_Product_Product` (`product_code` ASC),
   INDEX `fk_Provider_Product_Provider` (`provider_code` ASC),
-=======
-  INDEX `fk_Provider_Product_Product` (`product_code` ) ,
-  INDEX `fk_Provider_Product_Provider` (`provider_code` ),
->>>>>>> 9eb0ee9817dc9b668218981b4445bf94c801119c:SQL/criarBD.sql
   CONSTRAINT `fk_Provider_has_Product_Provider1`
     FOREIGN KEY (`provider_code`)
     REFERENCES `loja`.`Provider` (`provider_code`)
