@@ -24,7 +24,12 @@
             <li class="inline">
                 <a href="../Controller/Product.php?operation=list">Listar produtos</a>
             </li>
+            <li class="inline">
+                <a href="../Controller/Provider.php?operation=list">Listar Fornecedores</a>
+            </li>
         </ul>
+
+
     </nav>
     <form action="../controller/Product.php?operation=insert" method="POST">
         <fieldset class="p-4 m-5 border border-blue-400">
