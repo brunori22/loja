@@ -18,6 +18,9 @@ class ProductDAO implements DAO
     }
     public function findOne($id)
     {
+        $connection = Connection::getConnection();
+        $stmt = $connection->query("select * from product where product_code = $id");
+        return $stmt->fetch(PDO::FETCH_ASSOC);
     }
     public function findAll()
     {
@@ -27,6 +30,12 @@ class ProductDAO implements DAO
     }
     public function update($object)
     {
+        $connection = Connection::getConnection();
+        $stmt = $connection->prepare('UPDATE product SET product_name=?, product_quantity=? WHERE product_code=?;');
+        $stmt->bindParam(1, $object->name);
+        $stmt->bindParam(2, $object->quantity);
+        $stmt->bindParam(3, $object->id);
+        return $stmt->execute();
     }
     public function delete($id)
     {
